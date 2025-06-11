@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import './LoginScreen.css'
 import  LOCALSTORAGE_KEYS from '../../constantas/localstorage'
 import { useNavigate } from 'react-router-dom'
-import { login, register} from '../../services/authServices'
+import { login } from '../../services/authServices'
 import useForm from '../../hooks/useForm'
-import { LOGIN_FIELD_NAMES } from '../../constantas/form/login'
-
-
-
+import LOGIN_FIELD_NAMES  from '../../constantas/form/login'
 
 const LoginScreen = () => {
 
