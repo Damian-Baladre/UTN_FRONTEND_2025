@@ -1,5 +1,5 @@
-import ENVIRONMENT from '../constantas/environment'
-import methop_HTTP from '../constantas/method'
+import ENVIRONMENT from '../constantas/environment.js'
+import methop_HTTP from '../constantas/method.js'
 
 const login = async ({ email, password }) => {
     const server_response_http = await fetch(

@@ -4,5 +4,4 @@
     PUT:'PUT',
     DELETE:'DELETE'
 }
-
 export default methop_HTTP;

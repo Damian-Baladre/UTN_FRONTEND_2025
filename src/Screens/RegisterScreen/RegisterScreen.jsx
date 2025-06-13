@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import  LOCALSTORAGE_KEYS  from '../../constantas/localstorage';
+import  LOCALSTORAGE_KEYS  from '../../constantas/localstorage.js';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../../services/authServices'
-import useForm from '../../hooks/useForm';
-import REGISTER_FIELD_NAMES from '../../constantas/form/register'
+import { register } from '../../services/authServices.js'
+import useForm from '../../hooks/useForm.jsx';
+import {REGISTER_FIELD_NAMES} from '../../constantas/form/register.js'
 
 const RegisterScreen = () => {
 
