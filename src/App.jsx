@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import LoginScreen from './Screens/LoginScreen/LoginScreen'
 import RegisterScreen from './Screens/RegisterScreen/RegisterScreen'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
+import WorkspaceScreen from './Screens/WorkspaceScreen/WorkspaceScreen'
 import AuthProtectRoute from './components/AuthProtectRoute/AuthProtectRoute'
 
 
@@ -15,6 +16,9 @@ const App = () => {
       <Route path='/register' element={<RegisterScreen />}></Route>
       <Route element={<AuthProtectRoute />}>
         <Route path='/home' element={<HomeScreen />}></Route>
+        <Route path='/workspace/:workspace_id' element={<WorkspaceScreen />}></Route>
+        <Route path='/workspace/:workspace_id/channels/:channel_id' element={<WorkspaceScreen />}></Route>
+
       </Route>
     </Routes>
   )
