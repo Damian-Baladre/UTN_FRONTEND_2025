@@ -2,22 +2,37 @@ import React, { useEffect, useState } from 'react';
 import './HomeScreen.css';
 import { getAllWorkspaces } from '../../services/workspacesService';
 import { Link } from 'react-router-dom';
-import useCustomQuery from '../../hooks/useCustomQuery';
 
 const HomeScreen = () => {
-  const { response: channelsResponse, error, loading, sendRequest } = useCustomQuery();
+    const [response, setResponse] = useState([])
+  const [loading, setLoading] = useState(true)
 
+  const getWorkspaces = async ( ) => {
+    try{
+      setLoading(true)
+      const data = await getAllWorkspaces()
+      setResponse(data)
+    }
+    catch(error){
+      console.error('Error al obtener workspaces', error)
+    }
+    finally{
+      setLoading(false)
+    }
+  }
 
-  useEffect(() => {
-    sendRequest( async () => getAllWorkspaces(user_id));
-  },
-  []
-  );
-
-  console.log({ loading, response });
+  useEffect(
+    () => {
+      getWorkspaces()
+    }, 
+    []
+  )
   return (
     <div>
       <h1>Tus espacios de trabajo</h1>
+      <Link to={'new'}>
+        Crear espacio de trabajo
+        </Link>
       <div>
         {
           loading

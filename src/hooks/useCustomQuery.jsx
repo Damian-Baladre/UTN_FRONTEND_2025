@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 const useCustomQuery = () => {
-    const [response, setResponse] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [response, setResponse] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const sendRequest = async (callback) => {
 
@@ -27,4 +27,5 @@ const useCustomQuery = () => {
         sendRequest
     }
 }
+
 export default useCustomQuery

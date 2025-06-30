@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { getChannels } from '../../services/channelService'
-import { useNavigation, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import SidebarChannel from '../../components/SidebarChannels/SidebarChannel';
 import useCustomQuery from '../../hooks/useCustomQuery';
+import Chat from '../../components/Chat/Chat';
 
 const WorkspaceScreen = () => {
+        const { workspace_id, channel_id } = useParams()
     const { response: channelsResponse, error, loading, sendRequest } = useCustomQuery();
-    const { workspace_id, channel_id } = useParams()
-    const navigation = useNavigation();
+
+    console.log('elchannelresponse', channelsResponse)
 
     useEffect(() => {
         sendRequest(async () => getChannels({ workspace_id }))
@@ -15,19 +17,20 @@ const WorkspaceScreen = () => {
 
     if (!loading & channelsResponse) {
         if (!channel_id) {
-            d
             return <Navigate
                 to={
-                    `/workspace/${workspace_id}/channels/${channelsResponse.data.channels[0]._id}`
+                    `/workspace/${workspace_id}/channel/${channelsResponse.data.channels[0]._id}`
                 }
             />
         }
     }
 
     if (loading) {
-        return <div>
+        return (
+        <div>
             <h1>Cargando espacios de trabajo...</h1>
         </div>
+        )
     }
 
     return (
@@ -35,14 +38,14 @@ const WorkspaceScreen = () => {
             <h1>Detalle del espacio de trabajo</h1>
             
             {
-                !loading && channels_response && <SidebarChannels channels={channels_response.data.channels}/>
+                !loading && channelsResponse && <SidebarChannel channels={channelsResponse.data.channels}/>
             }
             {
                 channel_id 
                 && !loading 
-                && channels_response 
-                && channels_response.data.channels.length > 0 
-                && <Chat/>
+                && channelsResponse 
+                && channelsResponse.data.channels.length > 0 
+                &&  <Chat />
             }
         </div>
     )
