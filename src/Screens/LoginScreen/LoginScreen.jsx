@@ -45,10 +45,10 @@ const LoginScreen = () => {
     });
 
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
+        <div className='contenedor-login'>
+            <h1 className='titulo-login'>Login</h1>
+            <form className='formulario-login' onSubmit={handleSubmit}>
+                <div className='contenedor-input'>
                     <label htmlFor="email">Ingresa tu email:</label>
                     <input
                         id='email'
@@ -59,7 +59,7 @@ const LoginScreen = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className='contenedor-input'>
                     <label htmlFor="password">Ingresa tu contraseña:</label>
                     <input
                         id='password'

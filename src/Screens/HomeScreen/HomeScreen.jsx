@@ -4,19 +4,19 @@ import { getAllWorkspaces } from '../../services/workspacesService';
 import { Link } from 'react-router-dom';
 
 const HomeScreen = () => {
-    const [response, setResponse] = useState([])
+  const [response, setResponse] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const getWorkspaces = async ( ) => {
-    try{
+  const getWorkspaces = async () => {
+    try {
       setLoading(true)
       const data = await getAllWorkspaces()
       setResponse(data)
     }
-    catch(error){
+    catch (error) {
       console.error('Error al obtener workspaces', error)
     }
-    finally{
+    finally {
       setLoading(false)
     }
   }
@@ -24,15 +24,15 @@ const HomeScreen = () => {
   useEffect(
     () => {
       getWorkspaces()
-    }, 
+    },
     []
   )
   return (
     <div>
       <h1>Tus espacios de trabajo</h1>
-      <Link to={'new'}>
+      <Link to={'/new'}>
         Crear espacio de trabajo
-        </Link>
+      </Link>
       <div>
         {
           loading
@@ -43,8 +43,11 @@ const HomeScreen = () => {
                   (element) => {
                     return (
                       <div key={element.workspace._id}>
-                        <h2>{element.workspace.name}</h2> {/* Asegúrate de que sea 'element.workspace.name' */}
-                        <Link to={'/workspace/' + element.workspace._id}> Ir a espacio de trabajo </Link>
+                        <h2>{element.workspace.name}</h2>
+                        <Link to={
+                          '/workspace/'
+                          + element.workspace._id
+                        }> Ir a espacio de trabajo </Link>
                       </div>
                     )
                   }

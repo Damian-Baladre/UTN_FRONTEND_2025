@@ -19,16 +19,23 @@ export const getAllWorkspaces = async () => {
     }
 }
 
-export const createWorspace = async () => {
+export const createWorkspace = async (workspace) => {
+    const {name, description} = workspace
     try{
         const auth_token = localStorage.getItem(LOCALSTORAGE_KEYS.AUTHORIZATION_TOKEN)
         const server_response = await fetch(ENVIRONMENT.URL_API + '/api/workspace', {
             method: methods_HTTP.POST,
             headers: {
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${auth_token}`,
-                'Content-Type': 'application/json'
             }
-        })
+        ,
+        body: JSON.stringify({
+            name: name,
+            description: description
+        }
+    )
+})
         const data = server_response.json()
         return data
     }

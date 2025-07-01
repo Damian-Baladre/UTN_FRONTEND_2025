@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react'
-import useForm from '../../hooks/useForm'
-import useCustomQuery from '../../hooks/useCustomQuery'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import useForm from '../../hooks/useForm';
+import useCustomQuery from '../../hooks/useCustomQuery';
+import { createWorkspace } from '../../services/workspacesService';
+import {Link, useNavigate } from 'react-router-dom';
 
 const NewWorkspaceScreen = () => {
-    const { response, loading, error, sendRequest } = useCustomQuery()
-    const initialFormState = {
+    const navigate = useNavigate();
+    const { response, loading, error, sendRequest } = useCustomQuery();
+    const initial_form_state = {
         name: '',
         description: ''
     }
     const handlesubmitNewWorkspace = () => {
-        sendRequest(async () => await createW(form_state))
+        sendRequest(async () => await createWorkspace(form_state))
 
     }
     const { form_state, handleSubmit, handleChange } = useForm({
         onSubmit: handlesubmitNewWorkspace,
-        initialFormState
+        initial_form_state
     })
     useEffect(() => {
         if (response && !loading && response.ok) {
@@ -60,7 +62,7 @@ const NewWorkspaceScreen = () => {
             }
 
         </div>
-    )
+    );
 }
 
 export default NewWorkspaceScreen
