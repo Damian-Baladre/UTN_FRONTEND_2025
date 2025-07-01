@@ -73,7 +73,7 @@ const LoginScreen = () => {
                 {
                     loading
                         ? <button type='button' disabled={loading}>Cargando</button>
-                        : <button type='submit'>Iniciar sesión</button>
+                        : <button type='submit'>INIAIA sesión</button>
                 }
             </form>
         </div>
