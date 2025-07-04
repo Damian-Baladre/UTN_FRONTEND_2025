@@ -6,8 +6,6 @@
     --color-five: #AAAAAA;
     --color-six: #7E7E7E;
     --color-seven: #373737;
-
-
     --title: 2.5rem;
     /* Títulos principales */
     --subtitle: 1.75rem;
@@ -22,35 +20,37 @@
     /* Leyendas o texto de apoyo */
 }
 
-.workspaceMain {
+.newWorkspace-box {
+    background-color: #Fff;
+    padding: 2rem;
+    border-radius: 25px;
     width: 100%;
-    height: 700px;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    justify-content: left;
 }
 
-.workspaceSidebar {
+.btn-newWorkspace-back {
+    width: 100%;
+    justify-content: right;
+}
+
+.tt-newWorkspaceScreen {
+    font-weight: 500;
+}
+
+.form-newWorkspaceScreen {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
     align-items: left;
+}
+.input-newWorkspaceScreen{
     width: 100%;
-    height: 100vh;
-    background-color: var(--color-one);
-    color: #fff;
-    padding: 1rem;
 }
 
-.toggel-menu {
-    cursor: pointer;
-    display: inline-block;
-}
+.btn-newWorkspaceScreen {
+    width: 100%;
 
-.tt-workspace {
-    font-weight: 600;
-    font-size: 1.5rem;
 }

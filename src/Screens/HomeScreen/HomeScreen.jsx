@@ -3,8 +3,8 @@ import './HomeScreen.css';
 import { getAllWorkspaces } from '../../services/workspacesService';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import NewWorkspace from '../../components/NewWorkspace/NewWorkspace';
-
+import NewWorkspace from '../../components/NewWorkspace/newWorkspace';
+import {HiArrowRight} from 'react-icons/hi';
 
 const HomeScreen = () => {
   const [response, setResponse] = useState([])
@@ -35,25 +35,25 @@ const HomeScreen = () => {
    
     <div className='Home'>
        <Header className='Headerhome' />
-       <NewWorkspace />
-
+       <span className='tt-home'>Hola de nuevo!</span>
       <div className='workspaces'>
         <div>
-          <h1>Tus espacios de trabajo</h1>
+
           {
             loading
               ? <h2>Está cargando...</h2>
-              : <div>
+              : <div className='workspace-list'>
+                <h3 className='sbt-workspace'>Espacios de trabajos</h3>
                 {
                   response.data.workspaces.map(
                     (element) => {
                       return (
-                        <div key={element.workspace._id}>
-                          <h2>{element.workspace.name}</h2>
+                        <div key={element.workspace._id} className='workspace-card'>
+                          <h2 className='workspace-name'>{element.workspace.name}</h2>
                           <Link to={
                             '/workspace/'
                             + element.workspace._id
-                          }> Ir a espacio de trabajo </Link>
+                          }> <HiArrowRight /> </Link>
                         </div>
                       )
                     }
@@ -63,25 +63,10 @@ const HomeScreen = () => {
           }
         </div>
       </div>
+      <NewWorkspace />
     </div>
 
   );
 }
 
 export default HomeScreen;
-
-
-
-
-
-//             ? <h2 style={{ color: 'red' }}>{error}</h2> // Mostrar mensaje de error
-//             : response.data && response.data.getWorkspaces && response.data.getWorkspaces.length > 0
-//               ? <div>
-//                 {response.data.getWorkspaces.map((element) => (
-//                   <div key={element.workspace._id}>
-//                     <h2>{element.workspace.name}</h2> {/* Asegúrate de que sea 'element.workspace.name' */}
-//                     <Link to={'/workspace' + element.workspace._id}>Ir a espacio de trabajo</Link>
-//                   </div>
-//                 ))}
-//               </div>
-//               : <h2>No hay espacios de trabajo disponibles.</h2>// Mensaje si no hay workspaces

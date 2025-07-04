@@ -1,0 +1,71 @@
+:root {
+    --color-one: #7D3986;
+    --color-two: #68436C;
+    --color-three: #411447;
+    --color-four: #2A062C;
+    --color-five: #AAAAAA;
+    --color-six: #7E7E7E;
+    --color-seven: #373737;
+    --title: 2.5rem;
+    /* Títulos principales */
+    --subtitle: 1.75rem;
+    /* Subtítulos */
+    --title-card: 1.25rem;
+    /*titulos de tarjetas*/
+    --text: 1rem;
+    /* Texto normal */
+    --small-text: 0.85rem;
+    /* Texto pequeño */
+    --caption: 0.75rem;
+    /* Leyendas o texto de apoyo */
+}
+.chat{
+    width:100%;
+    height: 700px;
+    background-color: var(--color-seven);
+    border: 2px solid var(--color-two);
+    border-radius: 1rem;
+    align-items: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--color-five);
+}
+.tt-chat{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.chat-messages{
+    overflow-y: scroll;
+
+}
+.chat-form{
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+}
+.chat-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.chat-username{
+font-weight: 500;
+}
+.chat-message{
+    padding: 0.2rem;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.btn-chat{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-one);
+    font-weight: 500;
+    font-size: 0.8rem;
+    
+}

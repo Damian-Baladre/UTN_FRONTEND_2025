@@ -57,7 +57,7 @@ const getEmail = async (email) => {
       {
         method: methop_HTTP.GET,
         headers: {
-          Authorization: `Bearer ${auth_token}`,
+          'Authorization': `Bearer ${auth_token}`,
         },
       }
     );

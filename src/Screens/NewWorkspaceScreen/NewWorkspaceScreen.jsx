@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import './NewWorkspaceScreen.css'
 import useForm from '../../hooks/useForm';
 import useCustomQuery from '../../hooks/useCustomQuery';
 import { createWorkspace } from '../../services/workspacesService';
 import {Link, useNavigate } from 'react-router-dom';
+import {HiArrowLeft} from 'react-icons/hi'
 
 const NewWorkspaceScreen = () => {
     const navigate = useNavigate();
@@ -27,19 +29,22 @@ const NewWorkspaceScreen = () => {
     }, [response])
 
     return (
-        <div>
+        <div className='newWorkspace-box'>
+            <div className='btn-newWorkspace-back'>
             <Link to={'/home'}>
-                Volver mis Warkspeis
+                <HiArrowLeft /> Volver
             </Link>
+            </div>
             {
                 loading
                     ? <span>cargando...</span>
                     : <>
-                        <h1>Crear espacio de trabajo</h1>
+                        <h1 className='tt-newWorkspaceScreen'>Crear espacio de trabajo</h1>
                         <form onSubmit={handleSubmit}>
-                            <div>
+                            <div className='form-newWorkspaceScreen'>
                                 <label htmlFor='name'>Nombre</label>
                                 <input
+                                className='input-newWorkspaceScreen'
                                     type="text"
                                     name='name'
                                     id='name'
@@ -47,9 +52,10 @@ const NewWorkspaceScreen = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
+                            <div className='form-newWorkspaceScreen'>
                                 <label htmlFor='description'>Descripcion</label>
                                 <input
+                                className='input-newWorkspaceScreen'
                                     type="text"
                                     name='description'
                                     id='description'
@@ -57,7 +63,7 @@ const NewWorkspaceScreen = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <button>Crear Warkspeis</button>
+                            <button className='btn-newWorkspaceScreen'>Crear espacio de trabajo</button>
                         </form></>
             }
 
