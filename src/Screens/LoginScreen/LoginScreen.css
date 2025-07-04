@@ -1,94 +1,163 @@
 :root {
-    --first-color: #25273A;
-    /*color texto principal*/
-    --second-color: #A2BCAF;
-    /*color secundario*/
-    --third-color: #F2CC8F;
-    /*color de detalles*/
-    --fourth-color: #D28570;
-    /*color acento*/
-    --fifth-color: #F4F1DE;
-    /*Color de fondo*/
-    --title: 2.5rem;
-    /* Títulos principales */
-    --subtitle: 1.75rem;
-    /* Subtítulos */
-    --title-card: 1.25rem;
-    /*titulos de tarjetas*/
-    --text: 1rem;
-    /* Texto normal */
-    --small-text: 0.85rem;
-    /* Texto pequeño */
-    --caption: 0.75rem;
-    /* Leyendas o texto de apoyo */
+    --color-one: #7D3986; 
+    --color-two: #68436C; 
+    --color-three: #411447;
+    --color-four: #2A062C;
+    --color-five: #AAAAAA;
+    --color-six: #7E7E7E;
+    --color-seven :#373737;
+
+
+    --title: 2.5rem;  /* Títulos principales */
+    --subtitle: 1.75rem;  /* Subtítulos */
+    --title-card: 1.25rem;  /*titulos de tarjetas*/
+    --text: 1rem;  /* Texto normal */
+    --small-text: 0.85rem;  /* Texto pequeño */
+    --caption: 0.75rem;  /* Leyendas o texto de apoyo */
+    
+
 }
 
 body {
     width: 100%;
-    background-color: var(--fifth-color);
     height: 100vh;
+    background-color: #fff;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.contenedor-login {
-    background-color: var(--second-color);
-    width: 100%;;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
+    margin: 0 auto;
 }
-
-.titulo-login {
-    color: var(--first-color);
+.logo-slack {
+    position: absolute;
+    top: 50px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: auto; 
+    height: 35px; /
+}
+.contenedor-login{
+    max-width: 800px; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo-login{
+    width: 100%;
+    padding-inline: 2rem;
+    font-weight: 500;
+    font-size: 3.4rem;
+    line-height: 3rem;
     text-align: center;
-    font-size: var(--subtitle);
-    font-family: libre-baskerville-regular, serif;
+}
+.subtitulo-login{
+    padding-inline: 2rem;
+    padding-bottom: 1rem ;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 3rem;
+    text-align: center;
+    color: var(--color-seven
+    );
 }
 .formulario-login{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .contenedor-input{
-    width:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
-    padding: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 input{
+    width: 40%;
+    height: 100%;
+    border: 0.1rem solid var(--color-six);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+.input-password{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     width: 100%;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border: none;
-    padding: 0.5rem;
-    font-size: var(--text);
-    font-family: libre-baskerville-regular, serif;
+    height: 100%;
 }
-label{
-    padding: 0.5rem;
-    color: var(--first-color);
-    font-size: var(--text);
-    font-weight: 700;
-    font-family: libre-baskerville-bold, serif;
+.input-password :focus{
+    transform: scaleX(1);
+    opacity: 1
 }
+
+.input-password button{
+    position: absolute;
+    padding: 0;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    height: auto;
+    background-color: transparent;
+    color: var(--color-five);
+    right: 29%;
+    translate: 0% 10%;
+    cursor: pointer;
+}
+.password-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 button{
-    width: 90%;
-    height: 2rem;
+    width: 40%;
+    height: 100%;
     border-radius: 0.5rem;
     border: none;
-    background-color: var(--fourth-color);
-    color: var(--fifth-color);
-    font-weight: 700;
-    font-size: var(--text);
-    font-family: libre-baskerville-bold, serif;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: var(--color-one);
+    color: #fff;
+    cursor: pointer;
+}
+.footer-login {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+.footer-login ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-login li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-login a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-login a:hover {
+  color: #666;
 }

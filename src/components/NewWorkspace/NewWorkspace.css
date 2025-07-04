@@ -1,0 +1,43 @@
+.newWorkspace{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: #F9F6F1;
+    cursor: pointer;
+    font-style: none;
+}
+.tt-newworkspace{
+    width: 100%;
+    padding-inline: 2rem;
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.btn-newWorkspace{
+    width: 40%;
+    height: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: var(--color-one);
+    color: #fff;
+    cursor: pointer;
+}
+p{
+    padding: 1rem;
+    font-weight: 100;
+}
+img{
+   width: 30%;
+   height: auto;
+}

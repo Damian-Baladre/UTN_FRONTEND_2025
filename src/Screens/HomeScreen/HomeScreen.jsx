@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './HomeScreen.css';
 import { getAllWorkspaces } from '../../services/workspacesService';
 import { Link } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import NewWorkspace from '../../components/NewWorkspace/NewWorkspace';
+
 
 const HomeScreen = () => {
   const [response, setResponse] = useState([])
@@ -28,35 +31,40 @@ const HomeScreen = () => {
     []
   )
   return (
-    <div>
-      <h1>Tus espacios de trabajo</h1>
-      <Link to={'/new'}>
-        Crear espacio de trabajo
-      </Link>
-      <div>
-        {
-          loading
-            ? <h2>Está cargando...</h2>
-            : <div>
-              {
-                response.data.workspaces.map(
-                  (element) => {
-                    return (
-                      <div key={element.workspace._id}>
-                        <h2>{element.workspace.name}</h2>
-                        <Link to={
-                          '/workspace/'
-                          + element.workspace._id
-                        }> Ir a espacio de trabajo </Link>
-                      </div>
-                    )
-                  }
-                )
-              }
-            </div>
-        }
+
+   
+    <div className='Home'>
+       <Header className='Headerhome' />
+       <NewWorkspace />
+
+      <div className='workspaces'>
+        <div>
+          <h1>Tus espacios de trabajo</h1>
+          {
+            loading
+              ? <h2>Está cargando...</h2>
+              : <div>
+                {
+                  response.data.workspaces.map(
+                    (element) => {
+                      return (
+                        <div key={element.workspace._id}>
+                          <h2>{element.workspace.name}</h2>
+                          <Link to={
+                            '/workspace/'
+                            + element.workspace._id
+                          }> Ir a espacio de trabajo </Link>
+                        </div>
+                      )
+                    }
+                  )
+                }
+              </div>
+          }
+        </div>
       </div>
     </div>
+
   );
 }
 

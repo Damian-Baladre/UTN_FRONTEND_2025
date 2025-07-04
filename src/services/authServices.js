@@ -49,4 +49,23 @@ catch(error){
 }
 }
 
-export {login, register}
+const getEmail = async (email) => {
+  const auth_token = localStorage.getItem(LOCALSTORAGE_KEYS.AUTHORIZATION_TOKEN);
+  if (auth_token) {
+    const server_response_http = await fetch(
+      `${ENVIRONMENT.URL_API}/api/users/login`,
+      {
+        method: methop_HTTP.GET,
+        headers: {
+          Authorization: `Bearer ${auth_token}`,
+        },
+      }
+    );
+    const server_response_data = await server_response_http.json();
+    return server_response_data.email;
+  } else {
+    return null;
+  }
+};
+
+export {getEmail, login, register}
